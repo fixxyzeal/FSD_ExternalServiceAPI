@@ -10,7 +10,7 @@ function GetToken(username, password) {
     const accessToken = jwt.sign(
       { username: config.user, role: "admin" },
       config.token_secret,
-      { expiresIn: "120m" }
+      { expiresIn: "2h" }
     );
 
     const refreshToken = jwt.sign(
@@ -36,7 +36,7 @@ function GetRefreshToken(token, res) {
     const accessToken = jwt.sign(
       { username: config.user, role: "admin" },
       config.token_secret,
-      { expiresIn: "120m" }
+      { expiresIn: "2h" }
     );
 
     return res.json({
