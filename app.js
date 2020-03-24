@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 
@@ -13,7 +14,7 @@ const auth = require("./controllers/AuthController");
 const port = process.env.PORT || 4000;
 
 app.use(bodyParser.json());
-
+app.use(cors());
 app.get("/", (req, res) => res.send("FSD External Service API"));
 
 app.use("/auth", auth);
