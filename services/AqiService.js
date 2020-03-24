@@ -14,4 +14,17 @@ async function GetAqiByCountry(city, state) {
   return result.data;
 }
 
-module.exports = { GetAqiByCountry };
+async function GetAqiByGeolocation(lat, lon) {
+  let result = await axios.get(
+    "https://api.airvisual.com/v2/nearest_city?lat=" +
+      lat +
+      "&lon=" +
+      lon +
+      "&key=" +
+      config.iqAirApikey
+  );
+
+  return result.data;
+}
+
+module.exports = { GetAqiByCountry, GetAqiByGeolocation };

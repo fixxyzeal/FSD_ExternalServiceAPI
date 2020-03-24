@@ -10,4 +10,11 @@ router.get("/", authenticateJWT, async (req, res) => {
   res.json(data);
 });
 
+router.get("/geolocation", authenticateJWT, async (req, res) => {
+  let lat = req.query.lat;
+  let lon = req.query.lon;
+  let data = await aqiService.GetAqiByGeolocation(lat, lon);
+  res.json(data);
+});
+
 module.exports = router;
