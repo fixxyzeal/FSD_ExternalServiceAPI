@@ -8,5 +8,7 @@ module.exports = {
   iqAirApikey: process.env.IQAIR_KEY,
   openexchangeratesApikey: process.env.OPENEX_KEY,
   redisURL: process.env.REDISCLOUD_URL,
-  redisPASS: process.env.REDIS_PASS
+  redisPASS: process.env.REDIS_PASS,
+  lineToken: process.env.LINE_TOKEN,
+  lineChannel: process.env.LINE_CHANNEL,
 };
