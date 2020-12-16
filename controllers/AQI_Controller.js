@@ -9,19 +9,22 @@ router.get("/", authenticateJWT, async (req, res) => {
   let state = req.query.state;
   let redis = redisService.Get();
 
-  redis.get("aqi", async (error, cache) => {
-    if (error) {
-      console.log(error);
-    }
+  let data = await aqiService.GetAqiByCountry(city, state);
+  res.json(data);
 
-    if (cache) {
-      return res.json(JSON.parse(cache));
-    }
+  // redis.get("aqi", async (error, cache) => {
+  //   if (error) {
+  //     console.log(error);
+  //   }
 
-    let data = await aqiService.GetAqiByCountry(city, state);
-    redisService.SetWithExpire("aqi", 1800, data);
-    res.json(data);
-  });
+  //   if (cache) {
+  //     return res.json(JSON.parse(cache));
+  //   }
+
+  //   let data = await aqiService.GetAqiByCountry(city, state);
+  //   redisService.SetWithExpire("aqi", 1800, data);
+  //   res.json(data);
+  // });
 });
 
 router.get("/geolocation", authenticateJWT, async (req, res) => {
