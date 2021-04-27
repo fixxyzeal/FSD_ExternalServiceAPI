@@ -19,6 +19,6 @@
     "jsonwebtoken": "^8.5.1",
     "messaging-api-line": "^0.8.5",
     "money": "^0.2.0",
-    "redis": "^3.0.2"
+    "redis": "^3.1.1"
   }
 }
